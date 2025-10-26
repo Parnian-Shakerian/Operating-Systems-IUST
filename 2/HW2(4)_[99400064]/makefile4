@@ -1,0 +1,5 @@
+all:
+	gcc -o number4 number4.c
+
+clean:
+	rm -f number4

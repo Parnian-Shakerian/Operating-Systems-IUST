@@ -1,0 +1,31 @@
+CC = gcc
+CFLAGS = -pthread -Wall -Wextra -pedantic -std=c11
+
+all: number1
+
+number1: number1.o
+	$(CC) $(CFLAGS) -o number1 number1.o
+
+number1.o: number1.c
+	$(CC) $(CFLAGS) -c number1.c
+
+clean:
+	rm -f *.o number1
+# navigate to directory containing makefile1, run the make command to compile.
+# This will create a file named number1 in the same directory.
+# run program with $ ./number1
+# makefile for practice and example for this code.
+# SRCDIR = src
+# OBJDIR = obj
+# all: number1
+# number1: $(OBJDIR)/number1.o
+# 	$(CC) $(CFLAGS) -o number1 $(OBJDIR)/number1.o
+# $(OBJDIR)/number1.o: $(SRCDIR)/number1.c | $(OBJDIR)
+# 	$(CC) $(CFLAGS) -MMD -c -o $(OBJDIR)/number1.o $(SRCDIR)/number1.c
+# -include $(OBJDIR)/*.d
+# $(OBJDIR):
+# 	mkdir -p $(OBJDIR)
+# run: number1
+# 	./number1
+# clean:
+# 	rm -rf $(OBJDIR) number1 
